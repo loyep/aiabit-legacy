@@ -3,7 +3,7 @@
  * for Docker builds.
  */
 // await import("./src/env.mjs");
-import million from 'million/compiler';
+import { next } from 'million/compiler';
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
@@ -17,9 +17,8 @@ const nextConfig = {
 };
 
 const millionConfig = {
-  auto: true,
-  // if you're using RSC:
-  // auto: { rsc: true },
+  auto: { rsc: true },
+  mute: true,
 }
  
-export default million.next(nextConfig, millionConfig);
+export default next(nextConfig, millionConfig);
