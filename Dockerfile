@@ -12,7 +12,7 @@ RUN apk add --no-cache libc6-compat
 
 FROM base AS deps
 WORKDIR /app
-COPY package.json pnpm-lock.yaml ./
+COPY . .
 COPY prisma ./prisma
 # COPY prisma ./prisma
 RUN corepack enable pnpm && pnpm i --frozen-lockfile
@@ -20,7 +20,6 @@ RUN corepack enable pnpm && pnpm i --frozen-lockfile
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-
 COPY . .
 
 ARG DATABASE_URL
