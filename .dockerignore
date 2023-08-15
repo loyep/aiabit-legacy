@@ -1,0 +1,26 @@
+**/node_modules
+**/.next
+/node_modules
+/.next
+node_modules
+.next
+dist/
+
+# all docker-compose files
+docker-compose*.yml
+Dockerfile*
+.dockerignore
+
+# Tipi folder
+logs/
+state/
+templates/
+scripts/
+screenshots/
+repos/
+media/
+data/
+apps/
+app-data/
+.github/
+__mocks__/

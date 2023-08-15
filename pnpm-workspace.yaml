@@ -1,7 +1,0 @@
-packages:
-  - docs
-  - website
-  - apps/*
-  - packages/*
-  - scripts
-  - packages/config/*

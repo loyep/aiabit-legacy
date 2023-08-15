@@ -1,0 +1,7 @@
+ignore:
+  - 'public'
+  - 'scripts'
+  - 'templates'
+  - 'screenshots'
+  - '**/*.json'
+  - '**/tests/**'
