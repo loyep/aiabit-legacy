@@ -17,4 +17,4 @@ services:
     depends_on:
       - web
     ports:
-      - "80:80"
+      - "3010:80"
