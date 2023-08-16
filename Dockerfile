@@ -62,6 +62,4 @@ ENV PORT=3000
 
 EXPOSE 3000
 
-RUN npm install -g pnpm
-
-CMD ["pnpm", "start"]
+CMD ["npm", "start"]
