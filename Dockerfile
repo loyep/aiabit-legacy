@@ -12,7 +12,7 @@ RUN \
   (echo "Lockfile not found." && exit 1)
 
 # Rebuild the source code only when needed
-FROM node:current-alpine AS builder
+FROM node:18-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY pnpm-lock.yaml* ./
@@ -30,7 +30,7 @@ RUN \
   (echo "Lockfile not found." && exit 1) 
 
 # Production image, copy all the files and run next
-FROM node:current-alpine AS runner
+FROM node:18-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
