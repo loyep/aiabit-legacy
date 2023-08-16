@@ -10,6 +10,7 @@ const nextConfig = {
   swcMinify: true,
   output: 'standalone',
   reactStrictMode: true,
+  productionBrowserSourceMaps: true,
   i18n: {
     locales: ["en"],
     defaultLocale: "en",
