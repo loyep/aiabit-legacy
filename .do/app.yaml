@@ -1,7 +1,6 @@
 name: aiabit
 services:
-- build_command: npm i -g pnpm && pnpm build
-  environment_slug: node-js
+- dockerfile_path: Dockerfile
   github:
     branch: main
     deploy_on_push: true
