@@ -23,6 +23,12 @@ COPY . .
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED 1
+ARG NEXTAUTH_URL
+ENV NEXTAUTH_URL $NEXTAUTH_URL
+ARG NEXTAUTH_SECRET
+ENV NEXTAUTH_SECRET $NEXTAUTH_SECRET
+ARG DATABASE_URL
+ENV DATABASE_URL $DATABASE_URL
 
 RUN corepack enable
 RUN \
@@ -60,10 +66,7 @@ USER nextjs
 
 # Environment variables must be redefined at run time
 ENV PORT=3000
-ENV NEXTAUTH_URL='http://localhost:3000'
-ENV NEXTAUTH_SECRET='secret'
-ARG DATABASE_URL
-ENV DATABASE_URL=${DATABASE_URL}
+ENV NEXT_TELEMETRY_DISABLED 1
 
 EXPOSE 3000
 
