@@ -4,6 +4,11 @@
  */
 // await import("./src/env.mjs");
 import { next } from 'million/compiler';
+import { config } from 'dotenv'
+
+config({
+  path: '.env.local',
+})
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
@@ -14,10 +19,6 @@ const nextConfig = {
   i18n: {
     locales: ["en"],
     defaultLocale: "en",
-  },
-  env: {
-    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET || '',
-    DATABASE_URL: process.env.DATABASE_URL || '',
   },
 };
 
