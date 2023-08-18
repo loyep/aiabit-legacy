@@ -4,27 +4,30 @@
  */
 // await import("./src/env.mjs");
 import { next } from 'million/compiler';
-import { config } from 'dotenv'
+// import { config } from 'dotenv'
 
-config({
-  path: '.env.local',
-})
+// config({
+//   path: '.env.local',
+// })
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
-  swcMinify: true,
   output: 'standalone',
   reactStrictMode: true,
-  productionBrowserSourceMaps: true,
   i18n: {
     locales: ["en"],
     defaultLocale: "en",
   },
+  experimental: {
+    serverActions: true,
+    forceSwcTransforms: true,
+  },
 };
 
-const millionConfig = {
-  auto: { rsc: true },
-  mute: true,
-}
+// const millionConfig = {
+//   auto: { rsc: true },
+//   server: true,
+// }
  
-export default next(nextConfig, millionConfig);
+// export default next(nextConfig, millionConfig);
+export default nextConfig;
