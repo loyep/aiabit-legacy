@@ -35,6 +35,7 @@ ENV NEXTAUTH_SECRET $NEXTAUTH_SECRET
 ENV DATABASE_URL $DATABASE_URL
 
 RUN corepack enable
+RUN env > .env
 RUN \
   [ -f pnpm-lock.yaml ] && (pnpm --offline install && pnpm turbo build) || \
   (echo "Lockfile not found." && exit 1) 
@@ -59,7 +60,7 @@ RUN apk add curl \
 # COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
-RUN NODE_ENV=development npx env-cmd --file .env
+COPY --from=builder /app/.env* .
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
