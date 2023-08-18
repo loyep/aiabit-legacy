@@ -30,7 +30,6 @@ declare module "next-auth" {
   // }
 }
 
-
 console.log('secret', process.env.NEXTAUTH_SECRET)
 console.log('DATABASE_URL', process.env.DATABASE_URL)
 /**

@@ -5,8 +5,6 @@
 // await import("./src/env.mjs");
 import { next } from 'million/compiler';
 
-console.log('DATABASE_URL', process.env.DATABASE_URL)
-
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   swcMinify: true,
@@ -16,6 +14,10 @@ const nextConfig = {
   i18n: {
     locales: ["en"],
     defaultLocale: "en",
+  },
+  env: {
+    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET || '',
+    DATABASE_URL: process.env.DATABASE_URL || '',
   },
 };
 
