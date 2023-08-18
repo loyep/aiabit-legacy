@@ -30,6 +30,8 @@ declare module "next-auth" {
   // }
 }
 
+
+console.log('secret', process.env.NEXTAUTH_SECRET)
 /**
  * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.
  *
@@ -45,7 +47,7 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   },
-  secret: process.env.NEXTAUTH_SECRET ?? '',
+  secret: process.env.NEXTAUTH_SECRET || 'aiabit',
   adapter: PrismaAdapter(prisma),
   providers: [
     DiscordProvider({
