@@ -10,7 +10,7 @@ RUN npm --global install turbo
 COPY . .
 COPY package.json ./
 COPY pnpm-lock.yaml* ./
-COPY .env ./.env.docker
+COPY .env.docker ./.env
 RUN \
   [ -f pnpm-lock.yaml ] && pnpm fetch || \
   (echo "Lockfile not found." && exit 1)
