@@ -72,11 +72,7 @@ USER nextjs
 
 # # Environment variables must be redefined at run time
 ENV PORT=3000
-# ENV NEXT_TELEMETRY_DISABLED 1
 
 EXPOSE 3000
-# COPY scripts/entrypoint.sh ./
-# RUN chmod +x ./entrypoint.sh
-# ENTRYPOINT ./entrypoint.sh
 
 CMD ["node", "server.js"]
