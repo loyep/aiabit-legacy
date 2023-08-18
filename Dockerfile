@@ -5,14 +5,15 @@ RUN apk add --no-cache libc6-compat && corepack enable
 WORKDIR /app
 
 FROM base AS pruner
-RUN npm --global install turbo
 WORKDIR /app
+RUN npm --global install turbo
 COPY . .
 COPY package.json ./
 COPY pnpm-lock.yaml* ./
 RUN \
   [ -f pnpm-lock.yaml ] && pnpm fetch || \
   (echo "Lockfile not found." && exit 1)
+RUN corepack enable
 # RUN turbo prune --docker
 
 # Rebuild the source code only when needed
@@ -22,7 +23,6 @@ COPY --from=pruner /app/node_modules ./node_modules
 COPY pnpm-lock.yaml* ./
 COPY package.json ./
 COPY . .
-RUN pnpm turbo prune --docker
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
