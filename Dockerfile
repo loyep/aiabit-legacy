@@ -26,7 +26,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN corepack enable
 RUN \
-  [ -f pnpm-lock.yaml ] && (pnpm --offline install && pnpm run build) || \
+  [ -f pnpm-lock.yaml ] && (pnpm --offline install && pnpm turbo build) || \
   (echo "Lockfile not found." && exit 1) 
 
 # Production image, copy all the files and run next
@@ -49,7 +49,7 @@ RUN apk add curl \
 # COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
-# COPY --from=builder /app/.env* .
+COPY --from=builder /app/.env* .
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
