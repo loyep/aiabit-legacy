@@ -5,6 +5,8 @@
 // await import("./src/env.mjs");
 import { next } from 'million/compiler';
 
+console.log('DATABASE_URL', process.env.DATABASE_URL)
+
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   swcMinify: true,
