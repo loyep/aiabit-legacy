@@ -13,7 +13,7 @@ COPY pnpm-lock.yaml* ./
 RUN \
   [ -f pnpm-lock.yaml ] && pnpm fetch || \
   (echo "Lockfile not found." && exit 1)
-RUN turbo prune --docker
+# RUN turbo prune --docker
 
 # Rebuild the source code only when needed
 FROM base AS builder
