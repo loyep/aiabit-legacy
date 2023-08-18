@@ -10,7 +10,6 @@ RUN npm --global install turbo
 COPY . .
 COPY package.json ./
 COPY pnpm-lock.yaml* ./
-COPY .env.docker ./.env
 RUN \
   [ -f pnpm-lock.yaml ] && pnpm fetch || \
   (echo "Lockfile not found." && exit 1)
@@ -22,6 +21,7 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=pruner /app/node_modules ./node_modules
 COPY pnpm-lock.yaml* ./
+COPY .env.docker ./.env
 COPY package.json ./
 COPY . .
 
