@@ -24,10 +24,9 @@ const nextConfig = {
   },
 };
 
-// const millionConfig = {
-//   auto: { rsc: true },
-//   server: true,
-// }
+const millionConfig = {
+  auto: { rsc: true },
+  mute: true,
+}
  
-// export default next(nextConfig, millionConfig);
-export default nextConfig;
+export default next(nextConfig, millionConfig);
