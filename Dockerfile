@@ -4,6 +4,12 @@ FROM node:18-alpine AS deps
 RUN apk add --no-cache libc6-compat && corepack enable
 WORKDIR /app
 
+FROM base AS pruner
+RUN npm --global install turbo
+WORKDIR /app
+COPY . .
+RUN turbo prune --docker
+
 # Install dependencies based on the preferred package manager
 COPY package.json ./
 COPY pnpm-lock.yaml* ./
@@ -18,7 +24,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY pnpm-lock.yaml* ./
 COPY package.json ./
 COPY . .
-RUN turbo prune --docker
+RUN pnpm turbo prune --docker
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
