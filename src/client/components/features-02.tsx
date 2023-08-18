@@ -17,7 +17,7 @@ export default function Features02() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="pt-16 md:pt-32">
+        <div className="pt-8 md:pt-32">
 
           { /* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
