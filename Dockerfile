@@ -58,13 +58,12 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
 
-RUN ls -la
-
-ENV PORT=3000
 # Environment variables must be redefined at run time
+ENV PORT=3000
 ENV NEXTAUTH_URL='http://localhost:3000'
 ENV NEXTAUTH_SECRET='secret'
-ENV DATABASE_URL
+ARG DATABASE_URL
+ENV DATABASE_URL=${DATABASE_URL}
 
 EXPOSE 3000
 
