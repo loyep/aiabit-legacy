@@ -14,14 +14,12 @@ RUN \
   [ -f pnpm-lock.yaml ] && pnpm fetch || \
   (echo "Lockfile not found." && exit 1)
 RUN corepack enable
-# RUN turbo prune --docker
 
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
 COPY --from=pruner /app/node_modules ./node_modules
 COPY pnpm-lock.yaml* ./
-COPY .env.docker ./.env
 COPY package.json ./
 COPY . .
 
@@ -61,7 +59,7 @@ RUN apk add curl \
 # COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/.env* .
+RUN NODE_ENV=development npx env-cmd --file .env
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
