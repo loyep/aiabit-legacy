@@ -6,19 +6,15 @@ export default function Hero() {
   return (
     <section>
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-
         { /* Particles animation */}
         <Particles className="absolute inset-0 -z-10" />
-
         { /* Illustration */}
         <div className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden" aria-hidden="true">
           <div className="absolute left-1/2 -translate-x-1/2 bottom-0 -z-10">
             <Image src={Illustration} className="max-w-none" width={2146} priority alt="Hero Illustration" />
           </div>
         </div>
-
         <div className="pt-32 pb-16 md:pt-52 md:pb-32">
-
           { /* Hero content */}
           <div className="max-w-3xl mx-auto text-center">
             <div className="mb-6" data-aos="fade-down">
