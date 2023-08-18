@@ -61,6 +61,10 @@ USER nextjs
 RUN ls -la
 
 ENV PORT=3000
+# Environment variables must be redefined at run time
+ENV NEXTAUTH_URL='http://localhost:3000'
+ENV NEXTAUTH_SECRET='secret'
+ENV DATABASE_URL
 
 EXPOSE 3000
 
