@@ -43,7 +43,7 @@ export default function SignIn() {
 
         <div className="text-center mt-4">
           <div className="text-sm text-slate-400">
-            Don't have an account? <Link className="font-medium text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out" href="/signup">Sign up</Link>
+            { "Don't have an account?" } <Link className="font-medium text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out" href="/signup">Sign up</Link>
           </div>
         </div>
 
