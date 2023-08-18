@@ -1,8 +1,0 @@
-spec:
-  name: aiabit
-  services:
-  - dockerfile_path: Dockerfile
-    git:
-      branch: main
-      repo_clone_url: https://github.com/loyep/aiabit.git
-    name: aiabit
